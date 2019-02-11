@@ -1,0 +1,143 @@
+@import "variables";
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  user-select: none;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: #409EFF;
+  text-decoration: none;
+}
+
+.border-top-1px, .border-right-1px, .border-bottom-1px, .border-left-1px {
+  position: relative;
+  &::before, &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    transform-origin: 0 0;
+  }
+}
+
+.border-top-1px {
+  &::before {
+    border-top: 1px solid $border-one;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform-origin: 0 top;
+  }
+}
+
+.border-right-1px {
+  &::after {
+    border-right: 1px solid $border-one;
+    top: 0;
+    right: 0;
+    height: 100%;
+    transform-origin: right 0;
+  }
+}
+
+.border-bottom-1px {
+  &::after {
+    border-bottom: 1px solid $border-one;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transform-origin: 0 bottom;
+  }
+}
+
+.border-left-1px {
+  &::before {
+    border-left: 1px solid $border-one;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform-origin: left 0;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .border-top-1px {
+    &::before {
+      width: 200%;
+      transform: scale(.5) translateZ(0);
+    }
+  }
+  .border-right-1px {
+    &::after {
+      height: 200%;
+      transform: scale(.5) translateZ(0);
+    }
+  }
+  .border-bottom-1px {
+    &::after {
+      width: 200%;
+      transform: scale(.5) translateZ(0);
+    }
+  }
+  .border-left-1px {
+    &::before {
+      height: 200%;
+      transform: scale(.5) translateZ(0);
+    }
+  }
+  @media (min-resolution: 3dppx) {
+    .border-top-1px
+    &::before {
+      width: 300%;
+      transform: scale(.333) translateZ(0);
+    }
+
+    .border-right-1px {
+      &::after {
+        height: 300%;
+        transform: scale(.333) translateZ(0);
+      }
+    }
+    .border-bottom-1px {;
+      &::after {
+        width: 300%;
+        transform: scale(.333) translateZ(0);
+      }
+    }
+    .border-left-1px {
+      &::before {
+        height: 300%;
+        transform: scale(.333) translateZ(0);
+      }
+    }
+  }
+}

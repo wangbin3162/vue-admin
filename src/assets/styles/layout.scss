@@ -1,0 +1,134 @@
+.layout-wrapper {
+  position: relative;
+  display: flex;
+  padding: 16px;
+  height: 100%;
+  .left {
+    position: relative;
+    width: 180px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: 0 0 5px #d4d4d4;
+    border-radius: 3px;
+    padding: 0 0 10px;
+    overflow: hidden;
+    transition: width .3s;
+    margin-right: 10px;
+    .content {
+      height: 100%;
+      transform: translateX(0);
+      display: flex;
+      flex-direction: column;
+      &.slide-fade-enter-active, &.slide-fade-leave-active {
+        transition: all .2s;
+      }
+      &.slide-fade-enter, &.slide-fade-leave-to {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      .tree {
+        flex: 1;
+        padding-top: 10px;
+        width: auto;
+        overflow: auto;
+      }
+    }
+    &.hide {
+      width: 30px;
+    }
+    .refresh {
+      position: absolute;
+      top: 10px;
+      right: 30px;
+      cursor: pointer;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 7px;
+      cursor: pointer;
+    }
+  }
+  .right {
+    flex: 1;
+    box-shadow: 0 0 5px #d4d4d4;
+    background: #ffffff;
+    border-radius: 3px;
+    overflow: hidden;
+    .list-box {
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+      height: 100%;
+      user-select: text;
+      .filter-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        height: 100px;
+        transition: height .35s;
+        overflow: hidden;
+        border-bottom: 1px solid #f0f0f0;
+        .filter-item {
+          width: 25%;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          margin-top: 6px;
+          .label {
+            width: 100px;
+            padding: 10px 0;
+            font-size: 12px;
+            color: #606266;
+            text-align: center;
+          }
+          .el-input, .el-select {
+            flex: 1;
+          }
+          .search-btn {
+            margin-left: 20px;
+            .open {
+              display: inline-block;
+              margin-left: 10px;
+              color: rgb(32, 160, 255);
+              font-size: 12px;
+              cursor: pointer;
+              &:hover {
+                color: #337ab7;
+              }
+            }
+          }
+        }
+      }
+      .content {
+        transition: .4s;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .detail-wrapper {
+          flex: 1;
+          width: 100%;
+          height: auto;
+          padding: 0 15px;
+          margin-bottom: 10px;
+          overflow: hidden;
+          .link-type,
+          .link-type:focus {
+            color: #337ab7;
+            cursor: pointer;
+            &:hover {
+              color: rgb(32, 160, 255);
+            }
+          }
+        }
+        .pagination-container {
+          text-align: right;
+          width: 100%;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
