@@ -5,10 +5,9 @@
 </template>
 
 <script>
-  const toolbar = ['formatselect | fontselect | fontsizeselect | bold italic underline strikethrough forecolor backcolor | link quicklink| numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent | undo redo removeformat code']
-  const plugins = 'image advlist code media link colorpicker paste table textcolor wordcount contextmenu'
-  const formats = '微软雅黑=微软雅黑;宋体=宋体;黑体=黑体;仿宋=仿宋;楷体=楷体;隶书=隶书;幼圆=幼圆;Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats'
-  let baseUrl = process.env.NODE_ENV !== 'production' ? '' : '/vue-admin-site'
+  import config from './config'
+
+  let baseUrl = process.env.NODE_ENV !== 'production' ? '' : '/cms'
   export default {
     name: 'tinymce',
     props: {
@@ -18,9 +17,6 @@
       value: {
         type: String,
         default: ''
-      },
-      menubar: {
-        default: '' // file edit insert view format table
       },
       height: {
         type: Number,
@@ -49,18 +45,10 @@
     methods: {
       initTinymce () {
         const _this = this
-        window.tinymce.init({
+        let cfg = Object.assign({
           selector: `#${this.tinymceId}`,
-          menubar: this.menubar.length > 0 ? this.menubar : false,
-          toolbar: toolbar,
-          plugins: plugins,
           height: this.height,
-          code_dialog_height: 350,
-          code_dialog_width: 800,
-          language: 'zh_CN',
-          skin: 'lightgray',
           skin_url: baseUrl + '/static/tinymce/skins/lightgray',
-          font_formats: formats,
           init_instance_callback: editor => {
             if (_this.value) {
               editor.setContent(_this.value)
@@ -70,8 +58,32 @@
               this.hasChange = true
               this.$emit('input', editor.getContent())
             })
+          },
+          setup: function(editor) {
+            editor.addButton('insertimg', {
+              title: '插入图片',
+              image: baseUrl + '/static/tinymce/img/img.png',
+              onclick: function() {
+                _this.$emit('insert-img')
+              }
+            })
+            editor.addButton('insertmedia', {
+              title: '插入视频',
+              image: baseUrl + '/static/tinymce/img/media.png',
+              onclick: function() {
+                _this.$emit('insert-media')
+              }
+            })
+            editor.addButton('atuoformatting', {
+              title: '自动排版',
+              image: baseUrl + '/static/tinymce/img/atuoformatting.png',
+              onclick: function() {
+                _this.$emit('auto-formatting')
+              }
+            })
           }
-        })
+        }, config)
+        window.tinymce.init(cfg)
       },
       destroyTinymce () {
         if (window.tinymce.get(this.tinymceId)) {
