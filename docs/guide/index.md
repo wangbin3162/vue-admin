@@ -3,8 +3,9 @@
 [![An image](./img/vue-2.5.10-brightgreen.svg)](https://github.com/vuejs/vue)
 [![An image](./img/element--ui-2.5.4-brightgreen.svg)](http://element-cn.eleme.io/#/zh-CN/component/installation)
 
-本项目是基于 Vue2.5，配合使用 [Element UI](http://element-cn.eleme.io/#/zh-CN/component/installation)组件库的一个前端管理后台集成解决方案。
-它使用了最新的前端技术栈，提炼了典型的业务模型，提供了丰富的功能组件，可以帮助快速搭建企业级中后台。
+本项目是基于 Vue2.5，配合使用 [Element UI](http://element-cn.eleme.io/#/zh-CN/component/installation)组件库来进行搭建wcm后台管理系统，
+项目开发的过程中主要参考了`panjiachen`[vue-element-admin](https://panjiachen.github.io/vue-element-admin-site/zh/guide/#%E5%AE%89%E8%A3%85),在此基础上自己
+构建了一套符合自公司开发规范的项目目录结构，按照公司设计要求，配合实现了一套后台样式。
 
 ## 功能概述
 

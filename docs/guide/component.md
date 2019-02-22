@@ -407,20 +407,17 @@ export default waves
 
 ### 常见的富文本
 
-- [quill](https://github.com/quilljs/quill)也是一个非常火的富文本，长相很不错。基于它写插件也很简单，api 设计也很简单。图片操作不太友善。如果对图片没什么操作的用户，推荐使用。
+- [quill](https://github.com/quilljs/quill) 图片操作不太友善。但是简单易使用
 
 - [vue-quill-editor](https://surmon-china.github.io/vue-quill-editor/) 基于quill的vue插件，可以尝试。
 
-- [wangEditor](http://www.wangeditor.com/) 一个国人开发的编辑器，简单易用，但功能偏少。
+- [wangEditor](http://www.wangeditor.com/) 一个国人开发的编辑器，简单易用
 
-- [ckeditor](https://ckeditor.com/ckeditor-5/) `ckeditor` 也是一家老牌做富文本的公司，今年也出了 5.0 版本，ui 也变美观了不少，
-而且它号称是插件最丰富的富文本了。推荐大家也可以试用一下。
+- [ckeditor](https://ckeditor.com/ckeditor-5/) `ckeditor` 也是一家老牌做富文本的公司。5.0版本最新，长相也挺好看。
 
-- [slate](https://github.com/ianstormtaylor/slate) 是一个 完全 可定制的富文本编辑框架。通过 Slate，
-你可以构建出类似 Medium、Dropbox Paper 或者 Canvas 这样使用直观、富交互、体验业已成为 Web 应用标杆的编辑器。
-同时，你也无需担心在代码实现上陷入复杂度的泥潭之中。看起来很酷，以后有机会我会在项目中实践试用一下。
+- [百度 UEditor](https://github.com/fex-team/ueditor) 又丑又难用。不推荐，实在要用推荐使用第三方库`vue-ueditor-wrap`
 
-- [百度 UEditor](https://github.com/fex-team/ueditor) ui 真的不好看，不符合当今审美了，官方也已经很久没更新过了。
+- [vue-ueditor-wrap](https://github.com/HaoChuan9421/vue-ueditor-wrap) 基于vue封装的组件，相对配置简单，修复了一些bug.
 
 
 ### Tinymce
