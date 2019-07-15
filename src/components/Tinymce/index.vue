@@ -1,13 +1,14 @@
 <template>
-  <div class="tinymce-container editor-container" :class="{fullscreen:fullscreen}">
-    <textarea class="tinymce-textarea" :id="tinymceId"></textarea>
-  </div>
+    <div class="tinymce-container editor-container" :class="{fullscreen:fullscreen}">
+        <label>
+            <textarea class="tinymce-textarea" :id="tinymceId"></textarea>
+        </label>
+    </div>
 </template>
 
 <script>
   import config from './config'
 
-  let baseUrl = process.env.NODE_ENV !== 'production' ? '' : '/cms'
   export default {
     name: 'tinymce',
     props: {
@@ -23,7 +24,7 @@
         default: 450
       }
     },
-    data () {
+    data() {
       return {
         hasChange: false,
         hasInit: false,
@@ -32,19 +33,20 @@
       }
     },
     watch: {
-      value (val) {
+      value(val) {
         if (!this.hasChange && this.hasInit) {
           this.$nextTick(() =>
             window.tinymce.get(this.tinymceId).setContent(val || ''))
         }
       }
     },
-    mounted () {
+    mounted() {
       this.initTinymce()
     },
     methods: {
-      initTinymce () {
+      initTinymce() {
         const _this = this
+        const baseUrl = this.$base
         let cfg = Object.assign({
           selector: `#${this.tinymceId}`,
           height: this.height,
@@ -59,25 +61,25 @@
               this.$emit('input', editor.getContent())
             })
           },
-          setup: function(editor) {
+          setup: function (editor) {
             editor.addButton('insertimg', {
               title: '插入图片',
               image: baseUrl + '/static/tinymce/img/img.png',
-              onclick: function() {
+              onclick: function () {
                 _this.$emit('insert-img')
               }
             })
             editor.addButton('insertmedia', {
               title: '插入视频',
               image: baseUrl + '/static/tinymce/img/media.png',
-              onclick: function() {
+              onclick: function () {
                 _this.$emit('insert-media')
               }
             })
             editor.addButton('atuoformatting', {
               title: '自动排版',
               image: baseUrl + '/static/tinymce/img/atuoformatting.png',
-              onclick: function() {
+              onclick: function () {
                 _this.$emit('auto-formatting')
               }
             })
@@ -85,28 +87,30 @@
         }, config)
         window.tinymce.init(cfg)
       },
-      destroyTinymce () {
+      destroyTinymce() {
         if (window.tinymce.get(this.tinymceId)) {
           window.tinymce.get(this.tinymceId).destroy()
         }
       },
-      setContent (value) {
+      setContent(value) {
         window.tinymce.get(this.tinymceId).setContent(value)
       },
-      insertContent (value) {
+      insertContent(value) {
         window.tinymce.get(this.tinymceId).insertContent(value)
       },
-      getContent () {
+      getContent() {
         window.tinymce.get(this.tinymceId).getContent()
       }
     },
-    activated () {
-      this.initTinymce()
+    activated() {
+      if (window.tinymce) {
+        this.initTinymce()
+      }
     },
-    deactivated () {
+    deactivated() {
       this.destroyTinymce()
     },
-    destroyed () {
+    destroyed() {
       this.destroyTinymce()
     }
   }

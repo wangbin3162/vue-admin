@@ -8,7 +8,6 @@ import TableBox from '../../Layout/MainLayout/ContentBox/TableBox'
 import PaginationBar from '../../Layout/MainLayout/ContentBox/PaginationBar'
 import Drawer from '../../components/Drawer/Drawer'
 import DrawerBox from '../../components/Drawer/DrawerBox'
-import Divider from '../../components/Divider/Divider'
 import VLabel from '../../components/Label/Label'
 
 export const commonMixin = {
@@ -182,7 +181,6 @@ export const commonMixin = {
     PaginationBar,
     Drawer,
     DrawerBox,
-    Divider,
     VLabel
   }
 }
