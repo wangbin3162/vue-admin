@@ -583,13 +583,4 @@ export default waves
 
 ![An Image](./img/table03.png)
 
-### el-scrollbar
-
-`el-scrollbar`是`element-ui`的隐藏滚动条组件，样式美观，在开发layout,drawer，以及菜单栏部分都有使用到。非常简单易用。
-
-```html
-<el-scrollbar style="height: 100%;">
-  <!--...-->
-</el-scr
-```
 

@@ -5,12 +5,12 @@
         <div class="content" v-show="leftOpened">
           <title-bar :label="leftLabel" icon="icon-funnelplot"></title-bar>
           <div class="tree">
-            <el-scrollbar style="height: 100%;">
+            <b-scrollbar style="height: 100%;">
               <!--左侧插槽可以自定义-->
               <slot name="tree">
                 树插槽
               </slot>
-            </el-scrollbar>
+            </b-scrollbar>
           </div>
         </div>
       </transition>

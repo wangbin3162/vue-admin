@@ -1,0 +1,33 @@
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  user-select: none;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: #409EFF;
+  text-decoration: none;
+}

@@ -1,12 +1,12 @@
 /**
  *创建axios服务实例
  */
-import axios from 'axios/index'
-import router from '../router/router'
+import request from 'axios'
+import router from '../router'
 import Qs from 'qs'
 import { Notification } from 'element-ui'
 
-const service = axios.create({
+const service = request.create({
   headers: {
     'X-Requested-With': 'XMLHttpRequest'
   },
@@ -23,11 +23,11 @@ service.interceptors.response.use(
     if (error.response) {
       // 响应时触发错误
       if (error.response.status >= 500) { // 如果是服务器端错误则跳转至服务错误页面
-        router.push({ path: '/500' })
+        router.push({path: '/500'})
       } else if (error.response.status === 404) {
-        router.push({ path: '/404' })
+        router.push({path: '/404'})
       } else if (error.response.status === 403) {
-        router.push({ path: '/403' })
+        router.push({path: '/403'})
       } else {
         Notification({
           title: '失败',
@@ -38,7 +38,7 @@ service.interceptors.response.use(
       }
     } else {
       // console.log('Error', error.message)
-      router.push({ path: '/500' })
+      router.push({path: '/500'})
     }
     return Promise.reject(error)
   }
@@ -49,7 +49,6 @@ export default service
 /**
  * get请求
  * @param url
- * @param data
  */
 export function requestGetNoData (url) {
   return service({
@@ -79,7 +78,7 @@ export function requestPost (url, data) {
       data = Qs.stringify(data)
       return data
     }],
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     data: data
   })
 }
@@ -100,13 +99,13 @@ export function requestPost2 (url, data) {
 /**
  * post请求
  * @param url
- * @param formData
+ * @param data
  */
 export function requestPostFormData (url, data) {
   return service({
     url: url,
     method: 'post',
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: {'Content-Type': 'multipart/form-data'},
     data: data
   })
 }
@@ -135,7 +134,7 @@ export function requestGet2 (url, data, downloadProcess) {
     url: url,
     method: 'get',
     params: data,
-    headers: { 'Content-Type': 'application/octet-stream;charset=utf-8' },
+    headers: {'Content-Type': 'application/octet-stream;charset=utf-8'},
     responseType: 'arraybuffer',
     onDownloadProgress: downloadProcess
   })

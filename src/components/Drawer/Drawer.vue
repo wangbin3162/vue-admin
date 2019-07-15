@@ -13,10 +13,10 @@
             </div>
           </div>
           <div class="body">
-            <el-scrollbar style="height: 100%;">
+            <b-scrollbar style="height: 100%;">
               <slot>
               </slot>
-            </el-scrollbar>
+            </b-scrollbar>
           </div>
           <div class="footer">
             <el-button size="small" v-waves type="info" plain @click="close()">取 消</el-button>
