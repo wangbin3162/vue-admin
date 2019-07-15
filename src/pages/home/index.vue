@@ -38,10 +38,10 @@
 
 <script>
   import PanelGroup from './components/PanelGroup'
-  import LineChart from '../../../components/Charts/LineChart'
-  import BarChart from '../../../components/Charts/BarChart'
-  import RaddarChart from '../../../components/Charts/RaddarChart'
-  import PieChart from '../../../components/Charts/PieChart'
+  import LineChart from '../../components/Charts/LineChart'
+  import BarChart from '../../components/Charts/BarChart'
+  import RaddarChart from '../../components/Charts/RaddarChart'
+  import PieChart from '../../components/Charts/PieChart'
 
   const lineChartData = {
     newVisitis: {

@@ -7,14 +7,13 @@
 </template>
 
 <script>
-  import { debounce } from '../../../common/util/utils'
 
   export default {
     mounted () {
       this.$nextTick(() => {
         this._initTableMaxHeight()
       })
-      this.__resizeHandler = debounce(() => {
+      this.__resizeHandler = this.$util.throttle(() => {
         this._initTableMaxHeight()
       }, 100)
       window.addEventListener('resize', this.__resizeHandler)

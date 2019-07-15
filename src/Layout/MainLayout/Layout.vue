@@ -3,7 +3,7 @@
     <div class="left" v-if="haveTree" :class="{'hide':!leftOpened}">
       <transition name="slide-fade">
         <div class="content" v-show="leftOpened">
-          <title-bar :label="leftLabel" icon="icon-funnelplot"></title-bar>
+          <title-bar :label="leftLabel" icon="icon-md-list"></title-bar>
           <div class="tree">
             <b-scrollbar style="height: 100%;">
               <!--左侧插槽可以自定义-->
@@ -14,16 +14,16 @@
           </div>
         </div>
       </transition>
-      <i class="refresh iconfont icon-sync" @click="refreshTree"></i>
+      <i class="refresh iconfont icon-ios-refresh" @click="refreshTree"></i>
       <span class="close" :class="leftOpenStyle" @click="leftOpened=!leftOpened"></span>
     </div>
     <div class="right">
       <div class="list-box">
         <!--筛选条件-->
-        <title-bar label="查询条件" icon="icon-filesearch"></title-bar>
+        <title-bar label="查询条件" icon="icon-ios-search"></title-bar>
         <slot name="filter">查询条件插槽</slot>
         <!--下方列表-->
-        <title-bar :label="contentLabel" icon="icon-table"></title-bar>
+        <title-bar :label="contentLabel" icon="icon-ios-list"></title-bar>
         <slot name="ctrl">
           <div style="padding-top:15px;"></div>
         </slot>
@@ -36,8 +36,7 @@
 </template>
 
 <script>
-  import TitleBar from '../TitleBar/index'
-  import '../../assets/styles/layout.scss'
+  import TitleBar from '../../components/TitleBar'
 
   export default {
     props: {

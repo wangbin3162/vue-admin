@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import ScrollPane from '../../../components/ScrollPane/index'
+  import ScrollPane from '../../components/ScrollPane'
 
   export default {
     data () {

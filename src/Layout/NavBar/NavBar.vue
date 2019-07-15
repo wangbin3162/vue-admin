@@ -12,7 +12,7 @@
       <div class="avatar">
         <el-dropdown size="medium" @command="handleCommand">
           <span class="el-dropdown-link">
-             <img src="../../../assets/images/avtar.png" alt="avatar"/>
+             <img src="../../assets/images/avtar.png" alt="avatar"/>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item :command="{type:'home'}">首页</el-dropdown-item>

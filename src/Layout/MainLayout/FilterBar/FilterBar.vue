@@ -1,6 +1,6 @@
 <template>
   <!--查询条件容器插入filter-item组件-->
-  <div class="filter-container" :style="{height:isOpended?'82px':'42px'}">
+  <div class="filter-container" :style="{height:isOpened?'82px':'42px'}">
     <slot>
     </slot>
   </div>
@@ -9,7 +9,7 @@
 <script>
   export default {
     props: {
-      isOpended: {
+      isOpened: {
         type: Boolean,
         default: false
       }

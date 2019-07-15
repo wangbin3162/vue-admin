@@ -2,18 +2,18 @@
   <div class="btn-bar">
     <div class="btn-bar-left">
       <slot>
-        <el-button size="mini" type="primary" icon="el-icon-circle-plus-outline" v-if="optCode.add"
-                   plain v-waves @click="handleCreate">新增
-        </el-button>
-        <el-button size="mini" type="success" icon="el-icon-edit" v-if="optCode.modify"
-                   plain v-waves @click="handleEdit">编辑
-        </el-button>
-        <el-button size="mini" type="info" icon="el-icon-search" v-if="showCheck"
-                   plain v-waves @click="handleCheck">查看
-        </el-button>
-        <el-button size="mini" type="danger" icon="el-icon-circle-close-outline" v-if="optCode.remove"
-                   plain v-waves @click="handleDelete">删除
-        </el-button>
+        <b-button size="mini" type="primary" v-if="optCode.add" v-waves @click="handleCreate" plain>
+          <i class="el-icon-circle-plus-outline"></i> 新增
+        </b-button>
+        <b-button size="mini" type="success" v-if="optCode.modify" v-waves @click="handleEdit" plain>
+          <i class="el-icon-edit-outline"></i> 编辑
+        </b-button>
+        <b-button size="mini" type="info" v-if="showCheck" v-waves @click="handleCheck" plain>
+          <i class="el-icon-search"></i> 查看
+        </b-button>
+        <b-button size="mini" type="danger" v-if="optCode.remove" v-waves @click="handleDelete" plain>
+          <i class="el-icon-remove-outline"></i> 删除
+        </b-button>
       </slot>
     </div>
     <div class="btn-bar-right">
@@ -39,27 +39,26 @@
     },
     methods: {
       handleCreate () {
-        this.$emit('handleCreate')
+        this.$emit('on-create')
       },
       handleEdit () {
-        this.$emit('handleEdit')
+        this.$emit('on-edit')
       },
       handleCheck () {
-        this.$emit('handleCheck')
+        this.$emit('on-check')
       },
       handleDelete () {
-        this.$emit('handleDelete')
+        this.$emit('on-delete')
       }
     }
   }
 </script>
 
-<style scoped lang="scss" rel="stylesheet/scss">
+<style scoped lang="scss">
   .btn-bar {
     display: flex;
     justify-content: space-between;
     padding: 10px 15px;
-
     .btn-bar-right {
       .download {
         display: inline-block;
@@ -71,13 +70,11 @@
         text-align: center;
         box-sizing: border-box;
         outline: 0;
-        margin: 0;
         transition: .1s;
         font-weight: 500;
         padding: 7px 10px;
         font-size: 12px;
         border-radius: 3px;
-        margin-right: 10px;
       }
     }
   }

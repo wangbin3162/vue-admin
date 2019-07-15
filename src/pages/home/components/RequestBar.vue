@@ -4,11 +4,9 @@
 
 <script>
   import echarts from 'echarts'
-  import resize from '../../../../components/Charts/mixins/resize'
+  import resize from '../../../components/Charts/mixins/resize'
 
   require('echarts/theme/macarons') // echarts theme
-
-  const animationDuration = 3000
 
   export default {
     mixins: [resize],
@@ -23,7 +21,7 @@
       },
       height: {
         type: String,
-        default: '300px'
+        default: '200px'
       }
     },
     data () {
@@ -44,54 +42,47 @@
     methods: {
       initChart () {
         this.chart = echarts.init(this.$el, 'macarons')
-        var builderJson = {
-          feadBack: 12,
-          reply: 10
+
+        const xAxisData = []
+        const data = []
+        for (let i = 0; i < 50; i++) {
+          xAxisData.push(i)
+          let x = (Math.abs((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5))
+          data.push(Math.floor(x))
         }
         this.chart.setOption({
           tooltip: {},
           grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            height: 60,
-            containLabel: true
+            left: '5%',
+            right: '5%'
           },
           xAxis: {
-            type: 'value',
             show: false,
-            max: builderJson.feadBack + builderJson.reply
+            data: xAxisData
           },
           yAxis: {
-            type: 'category',
             show: false
           },
           series: [
             {
-              name: '反馈数量',
+              name: '访问数量',
               type: 'bar',
-              stack: '总量',
-              label: {
+              data,
+              itemStyle: {
                 normal: {
-                  show: true,
-                  position: 'insideRight'
+                  color: '#3888fa',
+                  barBorderRadius: 2
                 }
-              },
-              data: [builderJson.feadBack]
-            },
-            {
-              name: '回复数量',
-              type: 'bar',
-              stack: '总量',
-              label: {
-                normal: {
-                  show: true,
-                  position: 'insideRight'
-                }
-              },
-              data: [builderJson.reply]
-            }
-          ]
+              }
+            }],
+          animationEasing: 'elasticOut',
+          animationEasingUpdate: 'elasticOut',
+          animationDelay (idx) {
+            return idx * 20
+          },
+          animationDelayUpdate (idx) {
+            return idx * 20
+          }
         })
       }
     }

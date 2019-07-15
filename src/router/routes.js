@@ -1,4 +1,4 @@
-import Main from '../pages/Layout/Main'
+import Main from '../Layout/Main'
 
 /**
  * router自定义配置项
@@ -16,7 +16,7 @@ const _401 = () => import(/* webpackChunkName: "errorPage" */ '../pages/errorPag
 const _403 = () => import(/* webpackChunkName: "errorPage" */ '../pages/errorPage/403.vue')
 const _404 = () => import(/* webpackChunkName: "errorPage" */ '../pages/errorPage/404.vue')
 const _500 = () => import(/* webpackChunkName: "errorPage" */ '../pages/errorPage/500.vue')
-const _home = () => import(/* webpackChunkName: "main" */ '../pages/Layout/Home/index.vue')
+const _home = () => import(/* webpackChunkName: "main" */ '../pages/home/index.vue')
 // 业务路由映射
 const _keyBoard = () => import(/* webpackChunkName: "charts" */ '../pages/charts/KeyBoard.vue')
 const _lineMarker = () => import(/* webpackChunkName: "charts" */ '../pages/charts/LineMarker.vue')

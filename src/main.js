@@ -8,12 +8,17 @@ import {
   Menu, Submenu, MenuItem, MenuItemGroup,
   Form, FormItem, Button, ColorPicker, Select, Option, Input,
   Table, TableColumn, Pagination,
-  Row, Col, Tree, Loading
+  Row, Col, Tree, Loading, Notification
 } from 'element-ui'
 // bin-ui
 import BinUI from 'bin-ui'
 import 'bin-ui/lib/styles/index.css'
 import './assets/styles/index.scss'
+
+//mock server
+// import { mockXHR } from './mock'
+//
+// mockXHR()
 
 // element-ui 局部引用
 // 下拉菜单
@@ -42,9 +47,9 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Tree)
 Vue.use(Loading.directive)
+Vue.prototype.$notify = Notification
 // bin-ui引用
 Vue.use(BinUI)
-
 Vue.prototype.$EventBus = new Vue()
 Vue.prototype.$base = process.env.NODE_ENV === 'production' ? '/vue-admin-site' : ''
 

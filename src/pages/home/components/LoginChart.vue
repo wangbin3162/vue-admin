@@ -4,8 +4,8 @@
 
 <script>
   import echarts from 'echarts'
-  import resize from '../../../../components/Charts/mixins/resize'
-  import { getWaterMark } from '../../../../common/util/utils'
+  import resize from '../../../components/Charts/mixins/resize'
+  import { getWaterMark } from '../../../common/util/utils'
 
   require('echarts/theme/macarons') // echarts theme
 

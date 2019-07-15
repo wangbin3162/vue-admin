@@ -14,13 +14,13 @@
       },
       icon: {
         type: String,
-        default: 'el-icon-info'
+        default: 'icon-ios-leaf'
       }
     }
   }
 </script>
 
-<style scoped lang="scss" rel="stylesheet/scss">
+<style scoped lang="scss">
   .title {
     width: 100%;
     font-size: 14px;

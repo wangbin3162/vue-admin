@@ -3,30 +3,30 @@
     <tree-bar slot="tree" ref="tree" :tree-data="treeData" :default-props="defaultProps"
               @current-change="handTreeCurrentChange"></tree-bar>
     <!--查询条件-->
-    <filter-bar slot="filter" :is-opended="filterOpened">
+    <filter-bar slot="filter" :is-opened="filterOpened">
       <filter-item title="商品名称">
-        <el-input v-model.trim="listQuery.name" size="mini" placeholder="请输入" clearable></el-input>
+        <b-input v-model.trim="listQuery.name" size="mini" placeholder="请输入" clearable></b-input>
       </filter-item>
       <filter-item title="店铺名称">
-        <el-input v-model.trim="listQuery.shop" size="mini" placeholder="请输入" clearable></el-input>
+        <b-input v-model.trim="listQuery.shop" size="mini" placeholder="请输入" clearable></b-input>
       </filter-item>
       <filter-item title="商家地址">
-        <el-input v-model.trim="listQuery.address" size="mini" placeholder="请输入" clearable></el-input>
+        <b-input v-model.trim="listQuery.address" size="mini" placeholder="请输入" clearable></b-input>
       </filter-item>
       <!--添加查询按钮位置-->
-      <filter-item :show-toggle="true" :is-opended="filterOpened" @reset-query="resetQuery"
+      <filter-item :show-toggle="true" :is-opened="filterOpened" @reset-query="resetQuery"
                    @search-click="handleFilter" @filter-toggle="filterOpened=!filterOpened"></filter-item>
       <filter-item title="商品种类">
-        <el-input v-model.trim="listQuery.category" size="mini" placeholder="请输入" clearable></el-input>
+        <b-input v-model.trim="listQuery.category" size="mini" placeholder="请输入" clearable></b-input>
       </filter-item>
       <filter-item title="商品描述">
-        <el-input v-model.trim="listQuery.desc" size="mini" placeholder="请输入" clearable></el-input>
+        <b-input v-model.trim="listQuery.desc" size="mini" placeholder="请输入" clearable></b-input>
       </filter-item>
     </filter-bar>
     <!--ctrl插入-->
     <button-bar slot="ctrl" :optCode="{add:true,modify:true,remove:true}"
-                @handleCreate="handleCreate" @handleEdit="handleEdit"
-                @handleCheck="handleCheck" @handleDelete="handleDelete"></button-bar>
+                @on-create="handleCreate" @on-edit="handleEdit"
+                @on-check="handleCheck" @on-delete="handleDelete"></button-bar>
     <!--列表table-->
     <table-box @resize-height="_resizeTableHeight">
       <el-table size="mini" highlight-current-row border
@@ -34,23 +34,15 @@
                 @row-dblclick="handleRowDoubleClick" @current-change="handleCurrentRowChange">
         <el-table-column label="编号" type="index" :index="_indexMethod" align="center"></el-table-column>
         <el-table-column label="商品名称" min-width="120" align="center" prop="name"></el-table-column>
-        <el-table-column label="店铺名称" min-width="120" align="center">
-          <template slot-scope="scope"><span>{{ scope.row.shop }}</span></template>
-        </el-table-column>
-        <el-table-column label="商家地址" min-width="200" align="center">
-          <template slot-scope="scope"><span>{{ scope.row.address }}</span></template>
-        </el-table-column>
-        <el-table-column label="商品种类" min-width="120" align="center">
-          <template slot-scope="scope"><span>{{ scope.row.category }}</span></template>
-        </el-table-column>
-        <el-table-column label="商品描述" min-width="180" align="center">
-          <template slot-scope="scope"><span>{{ scope.row.desc }}</span></template>
-        </el-table-column>
+        <el-table-column label="店铺名称" min-width="120" align="center" prop="shop"></el-table-column>
+        <el-table-column label="商家地址" min-width="200" align="center" prop="address"></el-table-column>
+        <el-table-column label="商品种类" min-width="120" align="center" prop="category"></el-table-column>
+        <el-table-column label="商品描述" min-width="180" align="center" prop="desc"></el-table-column>
         <!--操作-->
         <el-table-column fixed="right" label="操作" width="100" align="center">
           <template slot-scope="scope">
             <div class="operation">
-              <el-button size="mini" plain v-waves @click="handleUpdate(scope.row)">编 辑</el-button>
+              <b-button size="mini" plain v-waves @click="handleUpdate(scope.row)">编 辑</b-button>
             </div>
           </template>
         </el-table-column>
@@ -59,14 +51,13 @@
     <pagination-bar :current-page="listQuery.page" :total="total" :page-size="listQuery.size"
                     @size-change="handleSizeChange" @current-change="handleCurrentChange">
     </pagination-bar>
-
     <!--编辑页-->
     <drawer v-model="dialogFormVisible" :status="dialogStatus" :btn-status="btnStatus"
-            @on-create="createData" @on-update="updateData" width="60%" mask-close>
+            @on-create="createData" @on-update="updateData" mask-close>
       <!--添加form表单-->
       <drawer-box v-if="dialogStatus!=='check'" type="edit">
         <!--嵌套的表格-->
-        <el-form :model="goods" ref="dataForm" label-width="120px" size="small" status-icon
+        <el-form :model="goods" ref="dataForm" label-width="120px" size="small"
                  :rules="rules">
           <el-form-item label="商品名称" prop="name">
             <el-input v-model.trim="goods.name" clearable placeholder="请输入商品名称"></el-input>
@@ -151,11 +142,11 @@
         goods: null,
         rules: {
           name: [
-            { required: true, message: '请输入商品名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            {required: true, message: '请输入商品名称', trigger: 'blur'},
+            {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
           ],
           desc: [
-            { required: true, message: '请填写商品描述', trigger: 'blur' }
+            {required: true, message: '请填写商品描述', trigger: 'blur'}
           ]
         }
       }
@@ -171,13 +162,16 @@
        */
       // tree:刷新树方法
       handleRefreshTree () {
-        this.currentTreeNode = null
-        this.$refs.tree.setCurrentNode({})
+        this.$message('刷新左侧树')
+        if (this.currentTreeNode) {
+          this.currentTreeNode = null
+          this.$refs.tree.setCurrentNode({})
+        }
         this.initTree()
       },
       // tree:树节点点击事件
       handTreeCurrentChange (data) {
-        console.log(data)
+        this.$message({type: 'info', content: '点击了' + data.label})
       },
       // filter-Bar:重置查询条件
       resetQuery () {
@@ -199,13 +193,16 @@
       // button-bar:删除事件
       handleDelete () {
         this._choseOne().then(() => {
-          this._deletePop().then(() => {
-            console.log('删除操作..')
-            this.handleFilter()
-            this.initTree()
-            this.$notify({ type: 'success', message: '删除成功!' })
-          }).catch(() => {
-          })
+          this.$confirm(
+            {
+              title: '标题',
+              content: '此操作将永久删除此条数据, 是否继续?',
+              onOk: () => {
+                this.handleFilter()
+                this.initTree()
+                this.$message({type: 'success', content: '删除成功'})
+              }
+            })
         })
       },
       // button-bar:编辑按钮事件
@@ -270,7 +267,7 @@
           setTimeout(() => {
             this._setBtnLoading(false)
             this.handleFilter()
-            this._closeEditPage({ title: '成功', message: '创建成功', type: 'success' })
+            this._closeEditPage({title: '成功', message: '创建成功', type: 'success'})
           }, 50)
         })
       },
@@ -281,9 +278,19 @@
           setTimeout(() => {
             this._setBtnLoading(false)
             this.handleFilter()
-            this._closeEditPage({ title: '成功', message: '更新成功', type: 'success' })
+            this._closeEditPage({title: '成功', message: '更新成功', type: 'success'})
           }, 50)
         })
+      }
+    },
+    computed: {
+      editTitle () {
+        const map = {
+          check: '查看',
+          update: '编辑',
+          create: '新增'
+        }
+        return map[this.dialogStatus] || '标题'
       }
     }
   }

@@ -1,17 +1,15 @@
-import Layout from '../../components/Layout/Layout.vue'
-import TreeBar from '../../components/Layout/TreeBar/TreeBar'
+import Layout from '../../Layout/MainLayout/Layout.vue'
+import TreeBar from '../../Layout/MainLayout/TreeBar/TreeBar'
 import TitleBar from '../../components/TitleBar'
 import ButtonBar from '../../components/ButtonBar'
-import FilterBar from '../../components/Layout/FilterBar/FilterContainer'
-import FilterItem from '../../components/Layout/FilterBar/FilterItem'
-import TableBox from '../../components/Layout/ContentBox/TableBox'
-import PaginationBar from '../../components/Layout/ContentBox/PaginationBar'
+import FilterBar from '../../Layout/MainLayout/FilterBar/FilterBar'
+import FilterItem from '../../Layout/MainLayout/FilterBar/FilterItem'
+import TableBox from '../../Layout/MainLayout/ContentBox/TableBox'
+import PaginationBar from '../../Layout/MainLayout/ContentBox/PaginationBar'
 import Drawer from '../../components/Drawer/Drawer'
 import DrawerBox from '../../components/Drawer/DrawerBox'
 import Divider from '../../components/Divider/Divider'
 import VLabel from '../../components/Label/Label'
-
-import { parseTime } from '../util/utils'
 
 export const commonMixin = {
   data () {
@@ -52,9 +50,6 @@ export const commonMixin = {
         N: 'danger'
       }
       return map[status]
-    },
-    filterTime (time) {
-      return parseTime(time, '{y}-{m}-{d}')
     }
   },
   methods: {
@@ -110,7 +105,7 @@ export const commonMixin = {
         if (this.currentRow) {
           resolve()
         } else {
-          this.$message({ showClose: true, message: '请选择一行数据', type: 'warning', center: true })
+          this.$message({showClose: true, content: '请选择一行数据', type: 'warning', center: true})
         }
       })
     },
@@ -128,22 +123,16 @@ export const commonMixin = {
             }
           })
         } else {
-          this.$message({ message: `${formName} is undefind`, type: 'error', center: true })
+          this.$message({content: `${formName} is undefind`, type: 'error', center: true})
           reject(new Error('form is undefind'))
         }
-      })
-    },
-    // 8.删除弹窗选择
-    _deletePop () {
-      return this.$confirm('此操作将永久删除此条数据, 是否继续?', '提示', {
-        confirmButtonText: '确定', cancelButtonText: '取消', type: 'error'
       })
     },
     // 9.格式化树结构的数据
     _formatTreeNode (data, type) {
       let ret = []
-      for (var key in data) {
-        ret.push({ id: key, name: data[key], type: type })
+      for (let key in data) {
+        ret.push({id: key, name: data[key], type: type})
       }
       return ret
     },
@@ -151,13 +140,9 @@ export const commonMixin = {
     _formatOptions (obj) {
       let ret = []
       for (let key in obj) {
-        ret.push({ key: key, label: obj[key] })
+        ret.push({key: key, label: obj[key]})
       }
       return ret
-    },
-    // 11.格式化时间
-    _formateTime (time, formate) {
-      return parseTime(time, formate)
     },
     /**
      * 二、提供公共函数，可被子组件函数重写

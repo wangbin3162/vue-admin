@@ -2,7 +2,7 @@
   <div class="app-wrapper">
     <div class="sidebar-container" :class="{'hide':isCollapse}">
       <div class="logo">
-        <img class="icon" src="../../assets/images/logo.png" alt="logo"/>
+        <img class="icon" src="../assets/images/logo.png" alt="logo"/>
         <transition name="fade-in">
           <span class="title" v-show="!isCollapse">vue-admin</span>
         </transition>

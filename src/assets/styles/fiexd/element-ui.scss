@@ -1,0 +1,137 @@
+// 1: 左侧菜单覆盖
+.el-menu {
+  border: none;
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding-left: 0;
+}
+.el-submenu .el-menu-item {
+  background-color: #000c17 !important;
+  color: #aeaeae !important;
+}
+.el-submenu .el-menu-item:hover {
+  color: #ffffff !important;
+}
+.el-menu-item span, .el-submenu .el-submenu__title span {
+  margin-left: 10px;
+}
+.el-menu-item.is-active {
+  background-color: #1890ff !important;
+  span {
+    color: #ffffff;
+  }
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 220px;
+  min-height: 100%;
+}
+.el-menu-vertical-demo.el-menu--collapse {
+  min-height: 100%;
+  .el-submenu, .el-menu-item {
+    .iconfont {
+      margin-left: 0;
+      font-size: 20px;
+    }
+  }
+}
+// 1.1: 菜单左侧图标
+.el-submenu .iconfont, .el-menu-item .iconfont, .el-menu-item.is-active .iconfont {
+  color: #ffffff;
+  margin-left: 4px;
+  font-size: 18px;
+}
+// 2: 树节点样式覆盖
+.el-tree {
+  overflow: visible;
+  min-height: 100%;
+}
+.el-tree-node__content > .el-tree-node__expand-icon {
+  margin-left: 5px;
+  padding: 6px 4px;
+}
+.el-tree-node > .el-tree-node__children {
+  overflow: visible;
+}
+.el-tree--highlight-current .el-tree-node > .el-tree-node__content .el-tree-node__label {
+  padding: 5px 5px 4px;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .3s;
+}
+// 2.1: 带勾选的树结构
+.table .el-tree--highlight-current .el-tree-node > .el-tree-node__content .el-tree-node__label {
+  padding: 0 5px;
+}
+.el-tree--highlight-current .el-tree-node > .el-tree-node__content:hover {
+  background: #ffffff;
+}
+.el-tree--highlight-current .el-tree-node > .el-tree-node__content:hover .el-tree-node__label {
+  background: #e6f7ff;
+}
+.el-tree--highlight-current .el-tree-node > .el-tree-node__content {
+  cursor: auto;
+}
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content,
+.el-tree--highlight-current .el-tree-node.is-expanded > .el-tree-node__content,
+.el-tree--highlight-current .el-tree-node.is-focusable > .el-tree-node__content {
+  cursor: auto;
+  background: #ffffff;
+}
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content .el-tree-node__label {
+  color: #ffffff;
+  background: #1890ff;
+}
+// 3: 横向滚动条隐藏
+.el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+.el-select-dropdown__wrap.el-scrollbar__wrap {
+  overflow-x: scroll;
+}
+// 4: 分页背景色
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #fff;
+  color: #1890ff;
+  border: 1px solid #1890ff;
+}
+// 5: 表格样式
+// 5.1: 表格加载状态
+.el-table--border.el-loading-parent--relative {
+  border: 1px solid #ebeef5;
+  border-right: none;
+  border-bottom: none;
+}
+.el-loading-mask {
+  top: 0;
+  right: 1px;
+  bottom: 1px;
+  left: 0;
+}
+// 5.2:table悬停选中背景色
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td,
+.el-table__body tr.current-row > td,
+.el-table__body tr.hover-row.current-row > td,
+.el-table__body tr.hover-row.el-table__row--striped.current-row > td,
+.el-table__body tr.hover-row.el-table__row--striped > td,
+.el-table__body tr.hover-row > td {
+  background-color: #e6f7ff;
+}
+// 5.3: 表头颜色
+.el-table th.is-leaf {
+  background: #fafafa;
+  font-weight: normal;
+  color: rgba(0, 0, 0, .85);
+}
+// 6: 表单表头
+.el-form-item.is-success {
+  background-color: inherit;
+}
