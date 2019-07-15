@@ -36,8 +36,13 @@
         <el-table-column label="商品名称" min-width="120" align="center" prop="name"></el-table-column>
         <el-table-column label="店铺名称" min-width="120" align="center" prop="shop"></el-table-column>
         <el-table-column label="商家地址" min-width="200" align="center" prop="address"></el-table-column>
-        <el-table-column label="商品种类" min-width="120" align="center" prop="category"></el-table-column>
-        <el-table-column label="商品描述" min-width="180" align="center" prop="desc"></el-table-column>
+        <el-table-column label="商品种类" min-width="80" align="center">
+          <template slot-scope="scope">
+            <b-tag :type="scope.row.category==='零食'?'primary':'warning'">{{scope.row.category}}</b-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="商品描述" min-width="220" align="center" prop="desc"
+                         show-overflow-tooltip></el-table-column>
         <!--操作-->
         <el-table-column fixed="right" label="操作" width="100" align="center">
           <template slot-scope="scope">

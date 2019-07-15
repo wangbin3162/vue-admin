@@ -131,6 +131,14 @@
   font-weight: normal;
   color: rgba(0, 0, 0, .85);
 }
+// 5.4: 修复表头错位问题
+body .el-table th.gutter {
+  display: table-cell !important;
+}
+body .el-table colgroup.gutter {
+  display: table-cell !important;
+}
+
 // 6: 表单表头
 .el-form-item.is-success {
   background-color: inherit;

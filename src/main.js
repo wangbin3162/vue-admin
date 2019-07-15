@@ -15,10 +15,9 @@ import BinUI from 'bin-ui'
 import 'bin-ui/lib/styles/index.css'
 import './assets/styles/index.scss'
 
-//mock server
-// import { mockXHR } from './mock'
-//
-// mockXHR()
+// 是否使用mock server 如不实用 mock.js 则需要设置请求基础baseURL
+import './mock'
+
 
 // element-ui 局部引用
 // 下拉菜单
