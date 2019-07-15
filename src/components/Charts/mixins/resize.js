@@ -1,8 +1,6 @@
-import { debounce } from '../../../common/util/utils'
-
 export default {
   mounted () {
-    this.__resizeHandler = debounce(() => {
+    this.__resizeHandler = this.$util.throttle(() => {
       if (this.chart) {
         this.chart.resize()
       }
