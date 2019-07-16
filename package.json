@@ -1,7 +1,22 @@
 {
   "name": "vue-admin",
   "version": "0.1.0",
-  "private": true,
+  "description": "后台管理系统精简版",
+  "keywords": [
+    "bin-ui",
+    "bin",
+    "ui",
+    "admin",
+    "vue-admin",
+    "components"
+  ],
+  "author": "wang bin",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

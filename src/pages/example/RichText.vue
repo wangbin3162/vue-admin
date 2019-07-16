@@ -1,6 +1,6 @@
 <template>
   <div class="ritch-text">
-    <tinymce :height="400" v-model="content" id='tinymce'></tinymce>
+    <tinymce :height="350" v-model="content" id='tinymce'></tinymce>
     <div class="editor-content" v-html="content"></div>
   </div>
 </template>
