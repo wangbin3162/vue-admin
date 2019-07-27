@@ -5,7 +5,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }], // 增加一个自定义的 favicon(网页标签的图标)
   ],
-  base: '/vue-admin-doc/',
+  base: '/docs/vue-admin/',
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
@@ -14,8 +14,9 @@ module.exports = {
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
     nav: [
       { text: '指南', link: '/guide/' },
-      { text: '前端文档', link: 'https://wangbin3162.github.io/' },
-      { text: '演示地址', link: 'https://wangbin3162.github.io/vue-admin-site/' },
+      { text: 'bin-ui', link: 'https://wangbin3162.github.io/docs/bin-ui/' },
+      { text: '预览', link: 'https://wangbin3162.github.io/preview/vue-admin/' },
+      { text: '2.0版本', link: 'https://github.com/wangbin3162/bin-admin' },
       { text: 'GitHub', link: 'https://github.com/wangbin3162/vue-admin' }
     ],
     sidebar: {
