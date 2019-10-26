@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "axios": "^0.18.1",
-    "bin-ui": "^2.0.2",
+    "bin-ui": "^2.3.0",
     "echarts": "^4.2.1",
     "element-ui": "^2.10.1",
     "good-storage": "^1.1.0",
