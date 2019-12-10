@@ -3,4 +3,4 @@
 
 [项目演示地址](https://wangbin3162.gitee.io/vue-admin/)
 
-[说明文档](https://wangbin3162.gitee.io/vue-admin/dist/)
+[说明文档](https://wangbin3162.gitee.io/vue-admin/doc/)
