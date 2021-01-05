@@ -25,7 +25,7 @@
     "build:doc": "vuepress build docs"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bin-ui": "^2.3.8",
     "echarts": "^4.2.1",
     "element-ui": "^2.10.1",
