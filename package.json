@@ -32,7 +32,7 @@
     "good-storage": "^1.1.0",
     "mockjs": "^1.0.1-beta3",
     "nprogress": "^0.2.0",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "vue": "^2.6.10",
     "vue-count-to": "^1.0.13",
     "vue-router": "^3.0.7",
